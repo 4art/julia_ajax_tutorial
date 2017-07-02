@@ -4,21 +4,27 @@
         <title>Ajax Julia</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="static/css/style.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     </head>
     <body>
-            <h1>Julia, Welcome to the ajax exercise!</h>
-            <script type="text/javascript">
-            	$(document).ready(function(){
-            		$.ajax({
-            			url:"/holidays",
-            			type: "GET",
-            			success: function(data){
-            				var ferien = JSON.parse(data);
-            				console.log(ferien.HE);
-            			}
-            		})
-            	})
-            </script>
+        <h1>Julia, Welcome to the ajax exercise!</h1>
+        <div>
+	        <form>
+	        	<div>
+	        		<input type="text" id="name" name="name" placeholder="Name"/>
+	        		<span id="NameError" class="NameError hidden"></span>
+	        	</div>
+	        	<div>
+	        		<input type="text" id="surname" name="surname" placeholder="Surname"/>
+	        		<span id="SurnameError" class="SurnameError hidden"></span>
+	        	</div>
+	        	<div>
+	        		<input type="text" id="country" name="country" placeholder="Country"/>
+	        		<span id="CountryError" class="CountryError hidden"></span>
+	        	</div>
+	        </form>
+        </div>
+       	<script src="static/js/ajax.js"></script>
     </body>
 </html>

@@ -7,9 +7,10 @@ var bodyParser = require('body-parser');
 var path = require("path");
 
 app.use(bodyParser.json());
+app.use("/static", express.static('static'));
 
 app.get("/", function (req, res){
-    res.sendFile(path.join(__dirname+'/index.html'));
+    res.sendFile(path.join(__dirname + '/index.html'));
 });
 
 app.get("/greeting", function(req, res){
@@ -39,7 +40,8 @@ app.get("/user/:i", function(req, res){
 
 app.post("/user", function(req, res){
     data.user.add(req.body);
-    res.end(JSON.stringify(req.body))
+    //res.end(JSON.stringify(req.body));
+    res.sendFile(path.join(__dirname + '/index.html'));
 });
 
 app.get("/holidays", function(req, res){
