@@ -28,16 +28,19 @@
 
 
 function inputValidation(element){
-	element.change(function(){
-		if($(this).val().length < 3){
-			$(this).parent().find("span").removeClass("hidden").text("Fill this Field");
+	element.on("change, keyup, keydown", function(){
+		emptyCheck(element);
+	})
+}
+function emptyCheck(element){
+		if(element.val().length < 3){
+			element.parent().find("span").removeClass("hidden").text("Fill this Field");
 			element.addClass("error");
 		}
 		else{
-			$(this).parent().find("span").addClass("hidden").text(" ");
+			element.parent().find("span").addClass("hidden").text(" ");
 			element.removeClass("error");
 		}
-	})
 }
 
 $(document).ready(function(){
@@ -52,11 +55,18 @@ $(document).ready(function(){
 	var name = $("#name");
 	var surname = $("#surname");
 	var country = $("#country");
+	var button = $("#button");
 	inputValidation(name);
 	inputValidation(surname);
 	inputValidation(country);
-});
 
+	button.click(function(){
+		emptyCheck(name);
+		emptyCheck(surname);
+		emptyCheck(country);
+	})
+
+});
 
 
 /*$(document).ready(function(){
